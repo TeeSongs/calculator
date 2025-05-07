@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator</title>
+
+  <style>
+    body{
+      background-color: black;
+     
+    }
+    .result{
+      border: 1px solid white;
+      padding: 20px;
+      width: 50%;
+      color: white;
+      font-size: 30px;
+    }
+    h1{
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    button{
+      background-color: #555;
+      color: white;
+      /* padding: 30px; */
+      border-radius: 50%;
+      border: none;
+      font-size: 30px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .button-container :nth-child(4){
+      background-color: red;
+    }
+    .container{
+      width: 50%;
+   
+      margin: 0 auto;
+      align-items: center;
+      display:flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <H1>calculator</H1>
+
+  <div class="container">
+    
+    <p class=" result"></p>
+
+    <div class=" button-container">
+      <button onclick="print1()" class="num-num">1</button> 
+      <button onclick="print2()" class="num-num">2</button>
+      <button onclick="print3()" class="num-num">3</button> 
+      <button onclick="add()" >+</button><br>
+
+    </div>
+    <br>
+
+    <div class=" button-container">
+      <button onclick="print4()" class="num-num">4</button>
+      <button onclick="print5()" class="num-num">5</button>
+      <button onclick="print6()" class="num-num">6</button> 
+      <button onclick="minus()">-</button>
+    </div>
+    <br>
+ 
+  
+    <div class=" button-container">
+      <button  onclick="print7()" class="num-num">7</button> 
+      <button  onclick="print8()" class="num-num">8</button> 
+      <button  onclick="print9()" class="num-num">9</button>
+      <button onclick="multiply()">*</button>
+    </div>
+    <br>
+
+    <div class=" button-container">
+      <button  onclick="print0()" class="num-num">0</button> 
+      <button onclick="decimal()">.</button>
+      <button onclick="equalTo()">=</button> 
+      <button onclick="divide()">/</button><br>
+    </div>
+    <br>
+  
+
+    <button onclick="empty()">clear</button>
+
+  </div>
+
+
+  <script src="calculator.js"></script>
+
+</body>
+</html>
