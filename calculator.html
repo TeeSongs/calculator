@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>calculator</title>
   <link rel="icon" href="download.jpeg" type="image/x-icon">
+  
+
 
 
   <style>
@@ -65,7 +67,7 @@
     <br>
 
     <div class=" button-container">
-      <button onclick="print4()" class="num-num">4</button>
+      <button onclick="print4() " class="num-num">4</button>
       <button onclick="print5()" class="num-num">5</button>
       <button onclick="print6()" class="num-num">6</button> 
       <button onclick="minus()">-</button>
@@ -88,13 +90,17 @@
       <button onclick="divide()">/</button><br>
     </div>
     <br>
-  
+    <div>
+          <button onclick="squareRoot()">√</button>
+          <button onclick="square()">x²</button>
+          <button onclick="percent()">%</button>                 
+          <button onclick="empty()">clear</button>
+    </div>
 
-    <button onclick="empty()">clear</button>
 
   </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@11/lib/browser/math.js"></script>
   <script src="calculator.js"></script>
 
 </body>

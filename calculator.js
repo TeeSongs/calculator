@@ -1,6 +1,6 @@
 let calculation = '';
 // let num = ''; 
-
+let awaitingSquareRoot = false;
 function print1(){
   
   document.querySelector('.result').innerHTML =calculation += 1;
@@ -63,19 +63,62 @@ function minus(){
 function divide(){
   document.querySelector('.result').innerHTML =calculation += ` / `;
 }
-function equalTo(){
+function equalTo() {
+  if (calculation.includes('√')) {
+    // Replace all √N with the square root of N
+    calculation = calculation.replace(/√(\d+(\.\d+)?)/g, (match, num) => {
+      return Math.sqrt(parseFloat(num));
+    });
 
- document.querySelector('.result').innerHTML = eval(calculation)
+    // Remove any spaces that may cause eval to fail
+    const sanitized = calculation.replace(/\s+/g, '');
+    try {
+      const result = eval(sanitized);
+      document.querySelector('.result').innerHTML = result;
+      calculation = result.toString();
+    } catch (e) {
+      document.querySelector('.result').innerHTML = 'Error';
+      calculation = '';
+    }
+
+  } else if (calculation.includes('^2')) {
+    // Handle squaring
+    const base = parseFloat(calculation.replace('^2', ''));
+    calculation = Math.pow(base, 2);
+    document.querySelector('.result').innerHTML = calculation;
+
+  } else if (calculation.includes('%')) {
+    // Handle percentage
+    const value = parseFloat(calculation.replace('%', ''));
+    calculation = value / 100;
+    document.querySelector('.result').innerHTML = calculation;
+
+  } else {
+    // Regular evaluation
+    document.querySelector('.result').innerHTML = eval(calculation);
+  }
 }
+
 
 function empty() {
 
   calculation = "";
   document.querySelector('.result').innerHTML = ' '
 }
-// let calculation = ""; // assume this holds some expression
 
-// function add(number) {
-//   calculation += number;
-//   console.log(number + ' +');
-// }
+function squareRoot() {
+  document.querySelector('.result').innerHTML = calculation += `√`
+}
+function square() {
+  document.querySelector('.result').innerHTML = calculation += `^2`;
+}
+function percent() {
+  document.querySelector('.result').innerHTML = calculation += `%`;
+}
+
+
+
+
+
+
+
